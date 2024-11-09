@@ -1,0 +1,12 @@
+.....
+DETECTING AND ANALYZING RESULTS
+def predict_image(model, image):
+    preprocessed_image = preprocess_image(image)
+    prediction = model.predict(np.expand_dims(preprocessed_image, axis=0))[0][0]
+    return "Illegal Production Site" if prediction > 0.5 else "No Illegal Activity Detected"
+
+# Example of usage
+image_path = "path_to_new_satellite_image.tif"
+new_image = load_image(image_path)
+result = predict_image(model, new_image)
+print(result)
