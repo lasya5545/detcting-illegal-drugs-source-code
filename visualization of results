@@ -1,0 +1,10 @@
+...
+visualization of results
+import matplotlib.pyplot as plt
+
+def visualize_results(image, result):
+    plt.imshow(image)
+    plt.title(result)
+    plt.show()
+
+visualize_results(new_image, result)
