@@ -1,0 +1,20 @@
+.......
+pip install tensorflow torch opencv-python geopandas rasterio numpy scikit-learn
+OUTPUT:
+.......DATA COLLECTION AND PREPROCESSING
+import rasterio
+import numpy as np
+import cv2
+
+def load_image(file_path):
+    with rasterio.open(file_path) as src:
+        image = src.read([1, 2, 3])  # Read RGB bands
+    return np.transpose(image, (1, 2, 0))
+
+def preprocess_image(image):
+    # Resize, normalize, or augment the image for better model performance
+    image = cv2.resize(image, (256, 256))  # Resizing to 256x256 pixels
+    image = image / 255.0  # Normalizing to range [0, 1]
+    return image
+
+
